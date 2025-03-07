@@ -1,0 +1,31 @@
+@SlateAPI_HostAddress = https://localhost:7073
+
+
+
+POST {{SlateAPI_HostAddress}}/messages
+Content-Type: application/json
+
+{
+  "Id": 7,
+  "UserId": 2,
+  "Content": "Obamna"
+}
+
+###
+
+GET {{SlateAPI_HostAddress}}/messages
+
+###
+
+@id=0
+DELETE {{SlateAPI_HostAddress}}/messages/{{id}}
+
+###
+
+GET {{SlateAPI_HostAddress}}/test
+
+###
+
+DELETE {{SlateAPI_HostAddress}}/messages/2
+
+###
