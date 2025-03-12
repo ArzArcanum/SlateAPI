@@ -26,6 +26,6 @@ GET {{SlateAPI_HostAddress}}/test
 
 ###
 
-DELETE {{SlateAPI_HostAddress}}/messages/2
+DELETE {{SlateAPI_HostAddress}}/messages/3
 
 ###

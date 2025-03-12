@@ -2,11 +2,13 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SlateAPI.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace SlateAPI.Controllers
 {
     [Route("[controller]")]
     [ApiController]
+    [Authorize]
     public class MessagesController : ControllerBase
     {
         private readonly SlateDbContext _context;
