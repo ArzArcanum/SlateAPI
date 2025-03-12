@@ -18,7 +18,7 @@ public partial class SlateDbContext : DbContext
     public virtual DbSet<Message> Messages { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        => optionsBuilder.UseMySQL("Name=ConnectionStrings:DefaultConnection");
+        => optionsBuilder.UseMySQL(Environment.GetEnvironmentVariable("DB_CONNECTION_STRING"));
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
