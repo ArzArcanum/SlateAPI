@@ -1,18 +1,21 @@
 using Microsoft.EntityFrameworkCore;
 using SlateAPI.Models;
+using DotNetEnv;
 
 var AllowSameDomain = "_allowSameDomain";
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Load env variables
+Env.Load();
+string dbConnection = Environment.GetEnvironmentVariable("DB_CONNECTION_STRING");
 // Add services to the container.
-
 builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
 builder.Services.AddDbContext<SlateDbContext>(opt =>
     opt.UseMySQL(
-        builder.Configuration.GetConnectionString("DefaultConnection")
+        dbConnection
     )
 );
 
