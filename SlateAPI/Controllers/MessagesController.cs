@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SlateAPI.Models;
@@ -13,9 +9,9 @@ namespace SlateAPI.Controllers
     [ApiController]
     public class MessagesController : ControllerBase
     {
-        private readonly MessageContext _context;
+        private readonly SlateDbContext _context;
 
-        public MessagesController(MessageContext context)
+        public MessagesController(SlateDbContext context)
         {
             _context = context;
         }

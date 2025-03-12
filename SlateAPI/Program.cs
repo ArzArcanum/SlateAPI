@@ -10,8 +10,12 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
-builder.Services.AddDbContext<MessageContext>(opt =>
-    opt.UseInMemoryDatabase("Messages"));
+builder.Services.AddDbContext<SlateDbContext>(opt =>
+    opt.UseMySQL(
+        builder.Configuration.GetConnectionString("DefaultConnection")
+    )
+);
+
 builder.Services.AddCors(options =>
 {
     options.AddPolicy(name: AllowSameDomain,

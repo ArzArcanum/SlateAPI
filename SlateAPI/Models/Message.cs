@@ -1,13 +1,15 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.Collections.Generic;
 
-namespace SlateAPI.Models
+namespace SlateAPI.Models;
+
+public partial class Message
 {
-    public class Message
-    {
-        [Key]
-        public long Id { get; set; } // Auto-incrementing ID
-        public required long UserId { get; set; }
-        public required string Content { get; set; }
-        // Add a date/timestamp property
-    }
+    public long Id { get; set; }
+
+    public string UserId { get; set; } = null!;
+
+    public string Content { get; set; } = null!;
+
+    public DateTime? CreatedAt { get; set; }
 }
