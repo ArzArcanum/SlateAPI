@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SlateAPI.Models;
 using Microsoft.AspNetCore.Authorization;
+using System.Security.Claims;
 
 namespace SlateAPI.Controllers
 {
@@ -73,9 +74,11 @@ namespace SlateAPI.Controllers
         [HttpPost]
         public async Task<ActionResult<Message>> PostMessage(MessageRequestDTO messageDTO)
         {
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
             var message = new Message
             {
-                UserId = messageDTO.UserId,
+                UserId = userId,
                 Content = messageDTO.Content
             };
 
